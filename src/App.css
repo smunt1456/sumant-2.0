@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&family=Outfit:wght@100;200;300;400;700&family=Manrope:wght@200;300;400&display=swap");
+
+strong {
+  font-weight: 300;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Outfit", sans-serif;
+  overflow: hidden;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Responsive Header Transitions */
+.header-section {
+  width: 100%;
+  text-align: center;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.header-hero {
+  margin-top: 25vh;
+  margin-bottom: 2rem;
+}
+.header-chat {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  transform: scale(0.65);
+}
+
+.title {
+  font-size: 56px;
+  font-weight: 100;
+  margin: 0;
+}
+.subtitle {
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  font-weight: 100;
+  opacity: 0.6;
+  padding: 1rem 0;
+  letter-spacing: 1px;
+}
+
+.inner-body {
+  font-style: normal;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.app-shell {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  position: relative;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background: transparent; /* Ensure no white box here */
+}
+
+/* .title {
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+}
+
+#subtitle {
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  letter-spacing: 1px;
+} */
+
+.bubble-transition {
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bubble-active {
+  flex-direction: column;
+  width: auto;
+  justify-content: right;
+  align-items: end;
+}
+
+.glass-panel {
+  /* 1. Base transparency: Use a very dark tint so the white border pops */
+  background: rgba(81, 73, 128, 0.16);
+
+  /* 2. The Blur: Essential for the glass feel */
+  backdrop-filter: blur(4px);
+  box-shadow: inset 0.3px 0.4px 0.4px 0 rgba(255, 255, 255, 0.5),
+    inset -0.4px -0.5px 0.5px 0.5px rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 1);
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.5);
+  cursor: pointer;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.8); /* Subtle white */
+  opacity: 1; /* Firefox requires this to show the full color */
+}
+
+/* Layout for Message Bubbles */
+.message-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+/* Main Chat Container */
+.chat-container {
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.5rem;
+  /* Fade edge effect */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+}
+
+/* Custom Styled Scrollbar */
+.chat-container::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+.chat-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.message-list {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-bottom: 2rem;
+  padding: 4rem 0 1rem 0;
+}
+
+.message {
+  max-width: 80%;
+  border-radius: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  animation: slideIn 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* User Message: Aligned Right */
+.message.ai {
+  align-self: flex-start;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* AI Message: Aligned Left */
+.message.user {
+  align-self: flex-end;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e5e5e5;
+  border-bottom-right-radius: 0.25rem;
+  padding: 1rem 1.25rem;
+}
+
+.footer-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1.5rem 3rem 1.5rem;
+  flex-shrink: 0;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Remove the default browser outline from all inputs */
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Optional: If you want a subtle glow on the text itself when typing */
+input {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Outfit", sans-serif;
+}
+
+.suggestion-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Outfit", sans-serif;
+  text-align: left;
+  width: fit-content;
+}
+
+.suggestion-chip:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
